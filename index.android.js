@@ -14,102 +14,66 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
+import { Icon, Button } from 'react-native-elements';
+import { StackNavigator } from 'react-navigation';
+// put all styling components in styles.js
+import * as style from "./Styles";
 
-export default class fooma extends Component {
+// export default class fooma extends Component {
+export class fooma extends Component {
+  static navigationOptions = {
+    headerLeft:
+      <TouchableOpacity>
+        <Icon name="photo-camera"
+          size={24}
+          color="#424242"/>
+      </TouchableOpacity>,
+    headerRight:
+      <TouchableOpacity>
+        <Icon name="near-me"
+          size={24}
+          color="#424242"/>
+      </TouchableOpacity>,
+    title: "LOGO",
+    headerStyle: {
+      // backgroundColor: 'red',
+      // justifyContent: 'space-between',
+      // alignItems: 'center',
+      // alignItems: 'center',
+     },
+    headerTintColor: 'black',
+  };
+
   render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.appbar}>
-          <TouchableOpacity style={styles.icon}>
-            <Image style={{ tintColor: '#424242' }}
-              source={require('./img/take-picture.png')}/>
-          </TouchableOpacity>
-          <Text style={styles.title}>fooma</Text>
-          <TouchableOpacity style={styles.icon}>
-            <Image style={{ tintColor: '#424242' }}
-              source={require('./img/send-message.png')}/>
-          </TouchableOpacity>
-        </View>
-        {/* <ScrollView style={styles.scrollView}>
-          <Image style={{ tintColor: '#424242' }}
-            source={require('./img/send-message.png')}/>
-        </ScrollView> */}
-        <View style={styles.btmNavbar}>
-          <View style={styles.icon}>
-            <Image style={{ tintColor: '#424242' }}
-              source={require('./img/home.png')}/>
-          </View>
-          <View style={styles.icon}>
-            <Image style={{ tintColor: '#424242' }}
-              source={require('./img/search.png')}/>
-          </View>
-          <View style={styles.icon}>
-            <Image style={{ tintColor: '#424242' }}
-              source={require('./img/add.png')}/>
-          </View>
-          <View style={styles.icon}>
-            <Image style={{ tintColor: '#424242' }}
-              source={require('./img/favorite.png')}/>
-          </View>
-          <View style={styles.icon}>
-            <Image style={{ tintColor: '#424242' }}
-              source={require('./img/profile.png')}/>
-          </View>
-
-        </View>
-      </View>
+    return ( <View/>
+      // <View style={style.global.container}>
+      //   <View style={style.global.appbar}>
+      //     <TouchableOpacity style={style.global.icon}>
+      //       <Icon name="photo-camera"
+      //         size={24}
+      //         color="#424242"/>
+      //     </TouchableOpacity>
+      //     <Text style={style.global.title}>fooma</Text>
+      //     <TouchableOpacity style={style.global.icon}>
+      //       <Icon name="near-me"
+      //         size={24}
+      //         color="#424242"/>
+      //     </TouchableOpacity>
+      //   </View>
+      //   {/* <ScrollView style={styles.scrollView}>
+      //     <Image style={{ tintColor: '#424242' }}
+      //       source={require('./img/send-message.png')}/>
+      //   </ScrollView> */}
+      //   <View style={style.global.btmNavbar}>
+      //   </View>
+      // </View>
     );
   }face
 
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    // alignItems: 'stretch',
-  },
-  appbar: {
-    flexDirection: 'row',
-    // material design guideline - 56dp height, 4dp elevation for appbar
-    height: 56,
-    elevation: 4,
-    // set layout property
-    backgroundColor: '#F5F5F5',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    // paddingHorizontal: 16,
-  },
-  btmNavbar: {
-    // set position at the btm of the screen
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    flexDirection: 'row',
-    // material design guideline - 56dp height, 4dp elevation for appbar
-    height: 56,
-    elevation: 4,
-    // alignSelf: 'stretch',
-    // set layout property
-    backgroundColor: '#F5F5F5',
-    // justifyContent: 'space-between',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  title: {
-    color: '#424242',
-    fontSize: 26,
-  },
-  icon: {
-    padding: 16,
-  },
-  scrollView: {
-    flex: 1,
-    backgroundColor: 'red',
-    // padding: 30,
-  },
+const SimpleApp = StackNavigator({
+  Home: { screen: fooma },
 });
 
-AppRegistry.registerComponent('fooma', () => fooma);
+AppRegistry.registerComponent('fooma', () => SimpleApp);

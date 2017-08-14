@@ -17,7 +17,11 @@ import {
 import { Icon, Button } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
 // put all styling components in styles.js
-import * as style from "./Styles";
+// import * as style from "./Styles";
+
+
+
+import App from './app/index';
 
 // export default class fooma extends Component {
 export class fooma extends Component {
@@ -29,7 +33,7 @@ export class fooma extends Component {
           color="#424242"/>
       </TouchableOpacity>,
     headerRight:
-      <TouchableOpacity>
+      <TouchableOpacity>[]
         <Icon name="near-me"
           size={24}
           color="#424242"/>
@@ -71,9 +75,9 @@ export class fooma extends Component {
   }face
 
 }
+//
+// const SimpleApp = StackNavigator({
+//   Home: { screen: fooma },
+// });
 
-const SimpleApp = StackNavigator({
-  Home: { screen: fooma },
-});
-
-AppRegistry.registerComponent('fooma', () => SimpleApp);
+AppRegistry.registerComponent('fooma', () => App);

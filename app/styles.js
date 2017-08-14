@@ -10,6 +10,28 @@ export const values = {
   'navbarElevation': 4,
 };
 
+export const btmTabbar = {
+  style : `${StyleSheet.create({
+    height: values.navbarHeight,
+    elevation: values.navbarElevation,
+    justifyContent: 'center',
+    backgroundColor: colors.colorAccent,
+    });
+  }`,
+};
+
+
+
+
+export const btmTabbar = StyleSheet.create({
+  bar: {
+    height: values.navbarHeight,
+    elevation: values.navbarElevation,
+    justifyContent: 'center',
+    backgroundColor: colors.colorAccent,
+  }
+});
+
 export const global = StyleSheet.create({
   container: {
     flex: 1,

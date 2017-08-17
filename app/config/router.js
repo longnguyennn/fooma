@@ -1,16 +1,17 @@
 import React from 'react';
-import { TabNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
-
-import FeedStack from '../screens/Feed';
-import UserProfile from '../screens/UserProfile';
+// import screens
+import TakePicture from '../screens/TakePicture';
+import Feed from '../screens/Feed';
 import UploadPhoto from '../screens/UploadPhoto';
+import UserProfile from '../screens/UserProfile';
 //  import style
-import * as bottomTabbar from '../styles/bottomTabbar';
+import * as bottomTabbar from '../styles/BottomTabbar';
 
-export const Root = TabNavigator( {
+export const FeedTab = TabNavigator( {
   Feed: {
-    screen: FeedStack,
+    screen: Feed,
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => <Icon type='material-community' name='newspaper'
                                       color={tintColor} />,
@@ -41,5 +42,18 @@ export const Root = TabNavigator( {
     pressColor: bottomTabbar.colors.rippleColor,
   },
   tabBarPosition: 'bottom',
+  animationEnabled: false,
+  swipeEnabled: false,
 },
 );
+
+export const Root = StackNavigator({
+  FeedTab: {
+    screen: FeedTab,
+  },
+  TakePicture: {
+    screen: TakePicture,
+  },
+},  {
+  // ...
+});
